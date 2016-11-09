@@ -16,9 +16,15 @@ public class Ai : MonoBehaviour {
 	void Update () {
 		if (ball.position.x < rigidbody.position.x) {
 			rigidbody.AddForce (new Vector3 (-1 * ForceMultiplier, 0, 0));
-		} else {
+		} else if (ball.position.x >= rigidbody.position.x) {
 			rigidbody.AddForce (new Vector3 (1 * ForceMultiplier, 0, 0));
+		} else
+		if (ball.position.z < rigidbody.position.x) {
+				rigidbody.AddForce (new Vector3 (-1 * ForceMultiplier, 0, 0));
+		} else if (ball.position.z >= rigidbody.position.x) {
+				rigidbody.AddForce (new Vector3 (1 * ForceMultiplier, 0, 0));
 		}
+
 	}
 
 	void OnCollisionEnter(Collision collision) {
